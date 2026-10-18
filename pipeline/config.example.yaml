@@ -1,0 +1,54 @@
+# Скопируйте в config.yaml и заполните. Ключи можно также задать переменными окружения.
+
+project:
+  data_dir: data            # сюда складываются товары, сценарии, ролики
+  products_csv: data/products.csv
+
+llm:
+  provider: openrouter      # openrouter | none  (none = шаблонный сценарий без нейросети, для тестов)
+  base_url: https://openrouter.ai/api/v1
+  api_key: ${OPENROUTER_API_KEY}
+  model: deepseek/deepseek-chat
+  temperature: 0.8
+  variants: 3               # сколько вариантов сценария генерировать на товар
+
+tts:
+  provider: voicestudio     # voicestudio | mock  (mock = тишина нужной длины, для тестов без VoiceStudio)
+  base_url: http://localhost:3900
+  api_key: ""               # если в VoiceStudio включена авторизация
+  model: tts-1
+  voice: alloy              # id сохранённого голоса из команды `vitrina voices`
+  speed: 1.0
+  # Голоса по каналам: у каждого канала свой голос, чтобы площадки не склеивали каналы между собой
+  voices_by_channel:
+    dom: alloy
+    avto: alloy
+    masterskaya: alloy
+    gik: alloy
+
+stt:
+  provider: voicestudio     # voicestudio | none  (none = слова распределяются по времени равномерно)
+  model: whisper-1
+
+video:
+  width: 1080
+  height: 1920
+  fps: 30
+  max_images: 5             # сколько фото товара использовать
+  zoom_per_frame: 0.0012    # сила наезда Кена Бёрнса
+  music_dir: data/music     # папка с фоновой музыкой, выбирается случайно; пусто = без музыки
+  music_volume: 0.12
+  font_name: Arial Black    # на Windows есть; на Linux подставится DejaVu Sans
+  font_size: 78
+  words_per_line: 3
+  max_chars_per_line: 18  # длиннее этого группа слов переносится на следующий титр
+  primary_color: "&H00FFFFFF"   # белый текст (формат ASS: AABBGGRR)
+  outline_color: "&H00000000"   # чёрная обводка
+  highlight_color: "&H0000D7FF" # жёлтый акцент на первом слове хука
+
+cta:
+  text: "Ссылка в закрепе"       # фраза, которой заканчивается каждый ролик
+
+telegram:
+  bot_token: ${TELEGRAM_BOT_TOKEN}
+  channel_id: "@your_vitrina"    # username канала или числовой id
