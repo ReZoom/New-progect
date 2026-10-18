@@ -1,0 +1,8 @@
+config.yaml
+data/out/
+data/images/
+data/music/
+data/products.csv
+data/demo_products.csv
+__pycache__/
+*.pyc

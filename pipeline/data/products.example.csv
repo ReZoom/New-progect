@@ -1,0 +1,3 @@
+id,channel,title,description,price,affiliate_url,images,category,commission_pct,status,notes
+dom-001,dom,Органайзер для специй вращающийся,"Вращающаяся подставка на 12 банок, не занимает место, крутится одной рукой. Отзывы: удобно, банки не падают, экономит полку.",890,https://ozon.ru/t/example1,data/images/dom-001-1.jpg;data/images/dom-001-2.jpg,Дом и кухня,10,new,
+avto-001,avto,Скребок для льда с подогревом от прикуривателя,"Греется за 30 секунд, чистит лобовое без царапин, шнур 3 метра. Отзывы: зимой спасает, работает тихо.",650,https://ozon.ru/t/example2,data/images/avto-001-1.jpg,Автотовары,8,new,
